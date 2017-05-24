@@ -28,6 +28,8 @@ cp zagrcpu.sh /var/www/html/sysinfo/
 cp zagrnet.sh /var/www/html/sysinfo/
 chmod a+w *.txt
 cp cron2.sh /var/www/html/sysinfo/
+chmod +x /var/www/html/sysinfo/cron2.sh
+echo "*/1 * * * * root /var/www/html/sysinfo/cron2.sh " >> /etc/crontab
 echo "*/1 * * * * sysuser iostat -dkx | sed -e '1,3d' > /var/www/html/sysinfo/iosd.txt" >> /etc/crontab
 echo "*/1 * * * * sysuser cat /proc/net/dev | sed -e '1,2d' > /var/www/html/sysinfo/netz.txt" >> /etc/crontab
 echo "*/1 * * * * sysuser df | sed -e '1d' > /var/www/html/sysinfo/test.sc" >> /etc/crontab
