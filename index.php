@@ -4,7 +4,7 @@ echo "";
 echo "";
 echo "</html>";
 echo "<head><META HTTP-EQUIV='REFRESH' CONTENT='5'></head>";
-echo "<b><hr><b>NGINX Version: $HTTP_X_NGX_VERSION</b><hr><pre>Nginx side: $remote_addr:$remote_port</pre>";
+//echo "<b><hr><b>NGINX Version: $HTTP_X_NGX_VERSION</b><hr><pre>Nginx side: $remote_addr:$remote_port</pre>";
 echo system('/var/www/html/sysinfo/track.sh');
 echo "Загрузка дисков";
 echo "<br />";
