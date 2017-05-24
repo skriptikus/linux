@@ -29,7 +29,7 @@ cp zagrnet.sh /var/www/html/sysinfo/
 cp cron2.sh /var/www/html/sysinfo/
 chmod +x /var/www/html/sysinfo/cron2.sh
 echo "*/1 * * * * root /var/www/html/sysinfo/cron2.sh " >> /etc/crontab
-echo "*/1 * * * * timeout 15 iostat -dkx | sed -e '1,3d' > /var/www/html/sysinfo/iosd.txt" >> /etc/crontab
+echo "*/1 * * * * iostat -dkx | sed -e '1,3d' > /var/www/html/sysinfo/iosd.txt" >> /etc/crontab
 echo "*/1 * * * * sysuser cat /proc/net/dev | sed -e '1,2d' > /var/www/html/sysinfo/netz.txt" >> /etc/crontab
 echo "*/1 * * * * sysuser df | sed -e '1d' > /var/www/html/sysinfo/test.sc" >> /etc/crontab
 echo "*/1 * * * * sysuser mpstat | sed -e '1,3d' > /var/www/html/sysinfo/iosd2.txt" >> /etc/crontab
