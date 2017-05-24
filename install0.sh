@@ -27,13 +27,12 @@ cp track.sh /var/www/html/sysinfo/
 cp zagrcpu.sh /var/www/html/sysinfo/
 cp zagrnet.sh /var/www/html/sysinfo/
 cp cron2.sh /var/www/html/sysinfo/
-chmod +x /var/www/html/sysinfo/cron2.sh
 echo "*/1 * * * * root /var/www/html/sysinfo/cron2.sh " >> /etc/crontab
-echo "*/1 * * * * iostat -dkx | sed -e '1,3d' > /var/www/html/sysinfo/iosd.txt" >> /etc/crontab
-echo "*/1 * * * * sysuser cat /proc/net/dev | sed -e '1,2d' > /var/www/html/sysinfo/netz.txt" >> /etc/crontab
-echo "*/1 * * * * sysuser df | sed -e '1d' > /var/www/html/sysinfo/test.sc" >> /etc/crontab
-echo "*/1 * * * * sysuser mpstat | sed -e '1,3d' > /var/www/html/sysinfo/iosd2.txt" >> /etc/crontab
-echo "*/1 * * * * sysuser netstat -nlptu | sed -e '1,2d' > /var/www/html/sysinfo/nets.txt" >> /etc/crontab
-echo "*/1 * * * * sysuser df -i | sed -e '1d' > /var/www/html/sysinfo/inod.txt" >> /etc/crontab
-echo "*/1 * * * * sysuser netstat -ntps | head -n14 | tail -n11 > /var/www/html/sysinfo/netstattcp.txt" >> /etc/crontab
-echo "*/1 * * * * sysuser /var/www/html/sysinfo/cron2.sh " >> /etc/crontab
+echo "*/1 * * * * root timeout 15 iostat -dkx | sed -e '1,3d' > /var/www/html/sysinfo/iosd.txt" >> /etc/crontab
+echo "*/1 * * * * root cat /proc/net/dev | sed -e '1,2d' > /var/www/html/sysinfo/netz.txt" >> /etc/crontab
+echo "*/1 * * * * root df | sed -e '1d' > /var/www/html/sysinfo/test.sc" >> /etc/crontab
+echo "*/1 * * * * root mpstat | sed -e '1,3d' > /var/www/html/sysinfo/iosd2.txt" >> /etc/crontab
+echo "*/1 * * * * root netstat -nlptu | sed -e '1,2d' > /var/www/html/sysinfo/nets.txt" >> /etc/crontab
+echo "*/1 * * * * root df -i | sed -e '1d' > /var/www/html/sysinfo/inod.txt" >> /etc/crontab
+echo "*/1 * * * * root netstat -ntps | head -n14 | tail -n11 > /var/www/html/sysinfo/netstattcp.txt" >> /etc/crontab
+echo "*/1 * * * * root /var/www/html/sysinfo/cron2.sh " >> /etc/crontab
